@@ -1,0 +1,17 @@
+{
+  "camera": {"type": "perspective", "pos": [0, 0.5, 2.5], "lookat": [0,0,-1], "fov": 45},
+  "spp": 64,
+  "resolution": [640, 360],
+  "spheres": [
+    {"center": [0,0,-1], "radius": 0.5, "material": "red_diffuse"},
+    {"center": [-1.1,0,-1.2], "radius": 0.45, "material": "metal"},
+    {"center": [1.0,0,-1.3], "radius": 0.4, "material": "glass"},
+    {"center": [0,1.4,-0.8], "radius": 0.25, "material": "light"}
+  ],
+  "materials": {
+    "red_diffuse": {"type": "lambert", "albedo": [0.8,0.2,0.2]},
+    "metal": {"type": "metal", "albedo": [0.9,0.9,0.95], "roughness": 0.05},
+    "glass": {"type": "dielectric", "ior": 1.5},
+    "light": {"type": "emissive", "emission": [10,9,8]}
+  }
+}
