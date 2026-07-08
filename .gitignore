@@ -1,0 +1,57 @@
+# 编译产物
+**/build/
+*.o
+*.so
+*.a
+*.out
+*.exe
+
+# 各项目可执行文件（无扩展名二进制常见于 make 产物）
+001/brightness_grayscale
+002/gaussian_blur
+007/bilateral
+008/fft_filter
+009/simple_rt
+010/scene_rt
+011/mesh_bvh
+012/aa_dof
+013/materials
+014/path_gi
+015/rt_opt
+016/volume_mb
+017/mini_pbrt
+018/soft_gl
+019/texture_normal
+020/shadow_map
+021/pbr
+022/deferred
+024/terrain
+025/mini_engine
+
+# 运行输出（体积大，可本地再生成）
+**/output/
+*.ppm
+*.pgm
+*.pfm
+*.png
+!**/README.md
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ipynb_checkpoints/
+
+# IDE / 系统
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# 临时
+*.log
+/tmp/
