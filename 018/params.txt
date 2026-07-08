@@ -1,0 +1,5 @@
+angle 0.9
+light_x 2
+albedo_r 0.8
+albedo_g 0.3
+albedo_b 0.2
