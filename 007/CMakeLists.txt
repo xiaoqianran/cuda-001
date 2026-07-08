@@ -1,0 +1,7 @@
+cmake_minimum_required(VERSION 3.18)
+project(bilateral LANGUAGES CXX CUDA)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CUDA_STANDARD 17)
+add_executable(bilateral src/bilateral.cu)
+target_include_directories(bilateral PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+set_target_properties(bilateral PROPERTIES CUDA_ARCHITECTURES "75;80;86;89")
