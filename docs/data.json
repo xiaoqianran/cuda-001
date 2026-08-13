@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:32:31Z",
-  "completed": 35,
+  "updated_at": "2026-08-13T07:32:39Z",
+  "completed": 36,
   "failed": 0,
-  "pending": 15,
+  "pending": 14,
   "categories": [
     {
       "id": "post",
@@ -903,14 +903,26 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "panorama.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 3.633,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "cam0_erp.png",
+        "cam1_erp.png",
+        "cam2_erp.png",
+        "pano_hdr_merge.png",
+        "panorama.png"
+      ],
+      "files": [
+        "cam0_erp.png",
+        "cam1_erp.png",
+        "cam2_erp.png",
+        "pano_hdr_merge.png",
+        "panorama.png"
+      ],
+      "log": "project=036 title=全景拼接\nkind=python entry=panorama.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/036\n----- run -----\n============================================================\n036 | 鱼眼拼接 ERP 全景\n============================================================\nERP: 1024x512\n✓ 全景拼接完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:32:39Z"
     },
     {
       "id": "037",
