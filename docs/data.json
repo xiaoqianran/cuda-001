@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:33:58Z",
-  "completed": 47,
+  "updated_at": "2026-08-13T07:34:08Z",
+  "completed": 48,
   "failed": 0,
-  "pending": 3,
+  "pending": 2,
   "categories": [
     {
       "id": "post",
@@ -1201,14 +1201,20 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "ocean.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 7.434,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "height.png",
+        "ocean.png"
+      ],
+      "files": [
+        "height.png",
+        "ocean.png"
+      ],
+      "log": "project=048 title=FFT 海洋\nkind=python entry=ocean.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/048\n----- run -----\n============================================================\n048 | FFT 海洋\n============================================================\n频谱+IFFT: 31.9 ms\n✓ 海洋 FFT 波浪 + PBR 着色完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:34:08Z"
     },
     {
       "id": "049",
