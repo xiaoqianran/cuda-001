@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:30:48Z",
-  "completed": 17,
+  "updated_at": "2026-08-13T07:30:52Z",
+  "completed": 18,
   "failed": 0,
-  "pending": 33,
+  "pending": 32,
   "categories": [
     {
       "id": "post",
@@ -487,14 +487,18 @@
       "stack": "C++ 软件光栅",
       "kind": "cpp",
       "entry": "soft_gl",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 1.402,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "cube.png"
+      ],
+      "files": [
+        "cube.ppm"
+      ],
+      "log": "project=018 title=管线立方体 Phong\nkind=cpp entry=soft_gl\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/018\n----- make -----\ng++ -O3 -std=c++17 -o soft_gl src/soft_gl.cpp -lm\n----- run -----\n============================================================\n018 | 软件管线：旋转立方体 + Phong (离线)\n============================================================\n管线: 顶点 → MVP(VS) → 光栅 → Phong(FS) → PPM\n已写 output/cube.ppm，调参文件 params.txt\n✓ 完整渲染管线离线演示完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:30:52Z"
     },
     {
       "id": "019",
