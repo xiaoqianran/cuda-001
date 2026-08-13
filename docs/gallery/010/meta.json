@@ -1,0 +1,22 @@
+{
+  "id": "010",
+  "title": "多物体 + 阴影 + 反射",
+  "level": 2,
+  "category": "rt",
+  "category_label": "光线追踪",
+  "stack": "C++ CUDA",
+  "kind": "cuda",
+  "entry": "scene_rt",
+  "status": "ok",
+  "elapsed_sec": 4.128,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "scene.png"
+  ],
+  "files": [
+    "scene.ppm"
+  ],
+  "log": "project=010 title=多物体 + 阴影 + 反射\nkind=cuda entry=scene_rt\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/010\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o scene_rt src/scene_rt.cu\n----- run -----\n============================================================\n010 | 多物体 + Phong + 阴影 + 反射\n============================================================\n渲染 960x540 @ 反射深度3: 0.332 ms\n✓ 多物体场景 + 阴影 + 镜面反射完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:29:52Z"
+}
