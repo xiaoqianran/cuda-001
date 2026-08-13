@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:30:33Z",
-  "completed": 15,
+  "updated_at": "2026-08-13T07:30:40Z",
+  "completed": 16,
   "failed": 0,
-  "pending": 35,
+  "pending": 34,
   "categories": [
     {
       "id": "post",
@@ -442,14 +442,18 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "volume_mb",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.293,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "volume_mb.png"
+      ],
+      "files": [
+        "volume_mb.ppm"
+      ],
+      "log": "project=016 title=运动模糊 + 体积\nkind=cuda entry=volume_mb\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/016\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o volume_mb src/volume_mb.cu\n----- run -----\n============================================================\n016 | 运动模糊 + 体积散射 (delta tracking)\n============================================================\n640x360 spp=64: 2.0 ms\n✓ 运动模糊 + 体积散射完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:30:40Z"
     },
     {
       "id": "017",
