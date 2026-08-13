@@ -1,0 +1,22 @@
+{
+  "id": "030",
+  "title": "布料",
+  "level": 3,
+  "category": "particles",
+  "category_label": "粒子仿真",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "cloth.py",
+  "status": "ok",
+  "elapsed_sec": 2.991,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "cloth.png"
+  ],
+  "files": [
+    "cloth.png"
+  ],
+  "log": "project=030 title=布料\nkind=python entry=cloth.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/030\n----- run -----\n============================================================\n030 | 布料 32x32\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 8 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 8 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 8 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n✓ 布料 Verlet+约束 完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:31:56Z"
+}
