@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:32:57Z",
-  "completed": 39,
+  "updated_at": "2026-08-13T07:33:01Z",
+  "completed": 40,
   "failed": 0,
-  "pending": 11,
+  "pending": 10,
   "categories": [
     {
       "id": "post",
@@ -1003,14 +1003,18 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "point_cloud.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 2.581,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "pointcloud.png"
+      ],
+      "files": [
+        "pointcloud.png"
+      ],
+      "log": "project=040 title=点云\nkind=python entry=point_cloud.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/040\n----- run -----\n============================================================\n040 | 点云渲染 N=150000\n============================================================\n渲染: 554.3 ms\n✓ 点云 LOD + 视锥剔除完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:33:01Z"
     },
     {
       "id": "041",
