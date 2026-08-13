@@ -1,0 +1,22 @@
+{
+  "id": "011",
+  "title": "三角网格 + BVH",
+  "level": 3,
+  "category": "rt",
+  "category_label": "光线追踪",
+  "stack": "C++ CUDA",
+  "kind": "cuda",
+  "entry": "mesh_bvh",
+  "status": "ok",
+  "elapsed_sec": 8.385,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "bunny_bvh.png"
+  ],
+  "files": [
+    "bunny_bvh.ppm"
+  ],
+  "log": "project=011 title=三角网格 + BVH\nkind=cuda entry=mesh_bvh\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/011\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o mesh_bvh src/mesh_bvh.cu\n----- run -----\n============================================================\n011 | 三角形网格 + BVH (Möller-Trumbore)\n============================================================\n三角形数: 4864\nBVH 节点数: 3583 root=0\n无 BVH: 39.612 ms | 有 BVH: 0.147 ms | 加速: 268.94x\n✓ Möller-Trumbore + BVH 完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:30:03Z"
+}
