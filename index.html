@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CUDA-001 · T4 实验画廊</title>
+  <meta name="description" content="50 个 GPU 加速渲染实验，在 NVIDIA Tesla T4 上依次跑完，结果写入 GitHub Pages。" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect rx='12' width='64' height='64' fill='%230b0f14'/%3E%3Cpath d='M12 40 L32 12 L52 40' fill='none' stroke='%233ee0b3' stroke-width='4'/%3E%3Ccircle cx='32' cy='44' r='6' fill='%23ff6b4a'/%3E%3C/svg%3E" />
+</head>
+<body>
+  <div class="grain" aria-hidden="true"></div>
+  <div class="orb orb-a" aria-hidden="true"></div>
+  <div class="orb orb-b" aria-hidden="true"></div>
+
+  <header class="topbar">
+    <a class="brand" href="#top">
+      <span class="brand-mark">∇</span>
+      <span>CUDA-001</span>
+    </a>
+    <nav class="top-nav">
+      <a href="#gallery">画廊</a>
+      <a href="#tracks">方向</a>
+      <a href="https://github.com/xiaoqianran/cuda-001" target="_blank" rel="noreferrer">源码</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <p class="eyebrow">
+        <span class="pulse"></span>
+        Modal · NVIDIA Tesla T4 · GitHub Pages
+      </p>
+      <h1>五十个 GPU 实验，<br /><em>一张画廊看完。</em></h1>
+      <p class="lede">
+        从 Numba 入门到路径追踪、粒子、流体与 NeRF。每个过程在最便宜的 T4 上依次跑完，
+        产物由 GitHub Action 写入本站。
+      </p>
+      <div class="stats" id="stats">
+        <article><strong id="stat-done">0</strong><span>已完成</span></article>
+        <article><strong id="stat-fail">0</strong><span>失败</span></article>
+        <article><strong id="stat-pending">50</strong><span>排队</span></article>
+        <article><strong id="stat-gpu">T4</strong><span>加速卡</span></article>
+      </div>
+      <p class="meta-line" id="updated">等待第一次 T4 回写…</p>
+    </section>
+
+    <section class="toolbar" id="gallery">
+      <div class="chips" id="chips"></div>
+      <div class="filters">
+        <label class="sr">搜索</label>
+        <input id="q" type="search" placeholder="搜索编号 / 标题 / 栈…" />
+        <select id="status">
+          <option value="all">全部状态</option>
+          <option value="ok">成功</option>
+          <option value="fail">失败</option>
+          <option value="running">运行中</option>
+          <option value="pending">等待</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="grid" id="grid" aria-live="polite"></section>
+
+    <section class="tracks" id="tracks">
+      <h2>九条学习轨道</h2>
+      <div class="track-list" id="track-list"></div>
+    </section>
+  </main>
+
+  <aside class="drawer" id="drawer" hidden>
+    <div class="drawer-panel" role="dialog" aria-modal="true" aria-labelledby="d-title">
+      <button class="icon-btn close" id="close" aria-label="关闭">×</button>
+      <p class="d-kicker" id="d-kicker"></p>
+      <h2 id="d-title"></h2>
+      <p class="d-sub" id="d-sub"></p>
+      <div class="d-hero" id="d-hero"></div>
+      <div class="thumbs" id="d-thumbs"></div>
+      <dl class="facts" id="d-facts"></dl>
+      <h3>运行日志</h3>
+      <pre id="d-log"></pre>
+    </div>
+  </aside>
+
+  <footer>
+    <p>cuda-001 · Modal T4 sequential runs · deployed by GitHub Actions</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
