@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:32:25Z",
-  "completed": 34,
+  "updated_at": "2026-08-13T07:32:31Z",
+  "completed": 35,
   "failed": 0,
-  "pending": 16,
+  "pending": 15,
   "categories": [
     {
       "id": "post",
@@ -877,14 +877,22 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "super_res.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 3.506,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "bicubic.png",
+        "lanczos.png",
+        "lr.png"
+      ],
+      "files": [
+        "bicubic.png",
+        "lanczos.png",
+        "lr.png"
+      ],
+      "log": "project=035 title=超分辨率\nkind=python entry=super_res.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/035\n----- run -----\n============================================================\n035 | 传统 GPU 超分辨率\n============================================================\n双三次+锐化: 722.99 ms | PSNR=39.39 SSIM=0.9990\nLanczos:      385.88 ms | PSNR=38.97 SSIM=0.9988\n✓ 超分 + 客观指标完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:32:31Z"
     },
     {
       "id": "036",
