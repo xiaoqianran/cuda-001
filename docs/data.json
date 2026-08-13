@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:29:30Z",
-  "completed": 7,
+  "updated_at": "2026-08-13T07:29:38Z",
+  "completed": 8,
   "failed": 0,
-  "pending": 43,
+  "pending": 42,
   "categories": [
     {
       "id": "post",
@@ -246,14 +246,26 @@
       "stack": "C++ cuFFT",
       "kind": "cuda",
       "entry": "fft_filter",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.356,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "band_butter.png",
+        "high_gauss.png",
+        "input.png",
+        "low_ideal.png",
+        "spectrum.png"
+      ],
+      "files": [
+        "band_butter.pgm",
+        "high_gauss.pgm",
+        "input.pgm",
+        "low_ideal.pgm",
+        "spectrum.pgm"
+      ],
+      "log": "project=008 title=FFT 频域滤波\nkind=cuda entry=fft_filter\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/008\n----- make -----\nnvcc -arch=sm_75 -O3 -I/usr/local/cuda/include -L/usr/local/cuda/lib64 -lcufft -o fft_filter src/fft_filter.cu\n----- run -----\n============================================================\n008 | cuFFT 频域滤波\n============================================================\n写出 output/low_ideal.pgm\n写出 output/high_gauss.pgm\n写出 output/band_butter.pgm\n✓ cuFFT 低通/高通/带通 + 频谱可视化完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:29:38Z"
     },
     {
       "id": "009",
