@@ -1,0 +1,24 @@
+{
+  "id": "009",
+  "title": "最简单光追",
+  "level": 2,
+  "category": "rt",
+  "category_label": "光线追踪",
+  "stack": "C++ CUDA",
+  "kind": "cuda",
+  "entry": "simple_rt",
+  "status": "ok",
+  "elapsed_sec": 4.245,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "cpu.png",
+    "gpu.png"
+  ],
+  "files": [
+    "cpu.ppm",
+    "gpu.ppm"
+  ],
+  "log": "project=009 title=最简单光追\nkind=cuda entry=simple_rt\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/009\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o simple_rt src/simple_rt.cu\n----- run -----\n============================================================\n009 | 最简单光线追踪器 (CPU → GPU)\n============================================================\nCPU: 11.234 ms | GPU: 0.029 ms | 加速比: 385.4x\nCPU/GPU 总像素差: 0 (期望 0)\n第一张 ray traced 图像已写出 output/gpu.ppm\n✓ 一像素一光线一核程 闭环完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:29:45Z"
+}
