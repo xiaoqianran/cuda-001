@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:30:18Z",
-  "completed": 13,
+  "updated_at": "2026-08-13T07:30:26Z",
+  "completed": 14,
   "failed": 0,
-  "pending": 37,
+  "pending": 36,
   "categories": [
     {
       "id": "post",
@@ -394,14 +394,22 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "path_gi",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.975,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "ao.png",
+        "gi1.png",
+        "path.png"
+      ],
+      "files": [
+        "ao.ppm",
+        "gi1.ppm",
+        "path.ppm"
+      ],
+      "log": "project=014 title=AO + GI 路径追踪\nkind=cuda entry=path_gi\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/014\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o path_gi src/path_gi.cu\n----- run -----\n============================================================\n014 | AO + GI + 路径追踪\n============================================================\nao spp=32: 8.5 ms\ngi1 spp=64: 2.7 ms\npath spp=128: 10.6 ms\n提示: 将 path spp 提到 1024 可接近照片级（更慢）。\n✓ AO + GI + 路径追踪完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:30:26Z"
     },
     {
       "id": "015",
