@@ -1,0 +1,28 @@
+{
+  "id": "012",
+  "title": "AA + 景深",
+  "level": 3,
+  "category": "rt",
+  "category_label": "光线追踪",
+  "stack": "C++ CUDA",
+  "kind": "cuda",
+  "entry": "aa_dof",
+  "status": "ok",
+  "elapsed_sec": 5.007,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "spp16_aa.png",
+    "spp1_pin.png",
+    "spp32_dof.png",
+    "spp64_dof_rnd.png"
+  ],
+  "files": [
+    "spp16_aa.ppm",
+    "spp1_pin.ppm",
+    "spp32_dof.ppm",
+    "spp64_dof_rnd.ppm"
+  ],
+  "log": "project=012 title=AA + 景深\nkind=cuda entry=aa_dof\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/012\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o aa_dof src/aa_dof.cu\n----- run -----\n============================================================\n012 | 抗锯齿 + 景深 (Halton/随机)\n============================================================\nspp1_pin: spp=1 lens=0.00 -> 0.38 ms\nspp16_aa: spp=16 lens=0.00 -> 1.84 ms\nspp32_dof: spp=32 lens=0.08 -> 3.25 ms\nspp64_dof_rnd: spp=64 lens=0.08 -> 2.01 ms\n✓ AA + DOF + Halton 采样完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:30:10Z"
+}
