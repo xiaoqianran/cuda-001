@@ -1,0 +1,24 @@
+{
+  "id": "046",
+  "title": "稳定流体",
+  "level": 4,
+  "category": "phys",
+  "category_label": "物理耦合",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "stable_fluids.py",
+  "status": "ok",
+  "elapsed_sec": 7.056,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "smoke.png",
+    "velocity.png"
+  ],
+  "files": [
+    "smoke.png",
+    "velocity.png"
+  ],
+  "log": "project=046 title=稳定流体\nkind=python entry=stable_fluids.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/046\n----- run -----\n============================================================\n046 | 稳定流体 128x128\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n60 步: 1347.7 ms\n✓ Navier-Stokes 稳定流体完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:33:49Z"
+}
