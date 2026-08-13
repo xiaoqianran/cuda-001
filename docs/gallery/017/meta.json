@@ -1,0 +1,23 @@
+{
+  "id": "017",
+  "title": "小型 PBRT",
+  "level": 5,
+  "category": "rt",
+  "category_label": "光线追踪",
+  "stack": "C++ CUDA",
+  "kind": "cuda",
+  "entry": "mini_pbrt",
+  "status": "ok",
+  "elapsed_sec": 5.388,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "beauty.png"
+  ],
+  "files": [
+    "beauty.pfm",
+    "beauty.ppm"
+  ],
+  "log": "project=017 title=小型 PBRT\nkind=cuda entry=mini_pbrt\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/017\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o mini_pbrt src/mini_pbrt.cu\n----- run -----\n============================================================\n017 | 小型离线渲染器 (JSON 场景驱动)\n============================================================\n场景: scenes/demo.json  res=640x360 spp=64 cam=0 spheres=4\n渲染完成: 8.8 ms\n输出: output/beauty.ppm + beauty.pfm (HDR)\n✓ 小型 PBRT 管线骨架完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:30:48Z"
+}
