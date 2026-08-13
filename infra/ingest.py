@@ -146,7 +146,7 @@ def ingest_result(result: dict) -> dict:
         {
             "status": "ok" if result.get("ok") else "fail",
             "elapsed_sec": result.get("elapsed_sec"),
-            "gpu": result.get("gpu"),
+            "gpu": (result.get("gpu") or "").replace("\x00", "").strip() or None,
             "images": images,
             "files": result.get("files") or keep_files,
             "log": (result.get("log") or "")[-8000:],

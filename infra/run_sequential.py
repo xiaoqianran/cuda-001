@@ -53,6 +53,11 @@ def commit_and_push(pid: str, rec: dict) -> None:
             print(p.stdout)
             if p.returncode == 0:
                 break
+    # github-pages 环境只允许 main：同步过去才能让 Action 真正写入 Pages
+    main_push = git("push", "origin", "HEAD:main")
+    print(main_push.stdout)
+    if main_push.returncode != 0:
+        print(f"[{pid}] push main 被拒绝（将依赖 gh-pages Action / 合并 PR）")
 
 
 def main() -> int:
