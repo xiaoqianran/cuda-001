@@ -1,0 +1,22 @@
+{
+  "id": "024",
+  "title": "地形 LOD",
+  "level": 3,
+  "category": "realtime",
+  "category_label": "实时渲染",
+  "stack": "C++ CUDA",
+  "kind": "cuda",
+  "entry": "terrain",
+  "status": "ok",
+  "elapsed_sec": 4.925,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "terrain.png"
+  ],
+  "files": [
+    "terrain.ppm"
+  ],
+  "log": "project=024 title=地形 LOD\nkind=cuda entry=terrain\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/024\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o terrain src/terrain.cu\nsrc/terrain.cu(48): warning #550-D: variable \"hit\" was set but never used\n      float t=1.f; bool hit=false; Vec3 p,n;\n                        ^\n\nRemark: The warnings can be suppressed with \"-diag-suppress <warning-number>\"\n\n----- run -----\n============================================================\n024 | 地形 LOD + splat + 水面\n============================================================\n渲染: 3.0 ms (目标概念 16km 场景用噪声 fbm 代替真实数据)\n✓ 地形管线完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:31:25Z"
+}
