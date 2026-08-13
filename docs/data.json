@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:33:49Z",
-  "completed": 46,
+  "updated_at": "2026-08-13T07:33:58Z",
+  "completed": 47,
   "failed": 0,
-  "pending": 4,
+  "pending": 3,
   "categories": [
     {
       "id": "post",
@@ -1175,14 +1175,22 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "fracture_sim.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 6.069,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "break_break.png",
+        "break_debris.png",
+        "break_solid.png"
+      ],
+      "files": [
+        "break_break.png",
+        "break_debris.png",
+        "break_solid.png"
+      ],
+      "log": "project=047 title=破碎仿真\nkind=python entry=fracture_sim.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/047\n----- run -----\n============================================================\n047 | 刚体破碎仿真\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n  solid 完成\n  break 完成\n  debris 完成\n✓ 破碎仿真完成（点击破碎=broken 标志）。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:33:58Z"
     },
     {
       "id": "048",
