@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
   pages: write
   id-token: write
 
@@ -17,8 +17,25 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  deploy:
-    name: Write docs → Pages
+  # Feature branches cannot use the github-pages environment (main-only policy).
+  # Pushing docs/ to gh-pages lets Actions write the live site from every run.
+  publish-branch:
+    name: Write docs → gh-pages
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Publish docs to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: docs
+          branch: gh-pages
+          clean: true
+          commit-message: "pages: sync gallery from ${{ github.sha }}"
+
+  deploy-main:
+    name: Write docs → Pages (main)
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
@@ -26,15 +43,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-
       - name: Setup Pages
         uses: actions/configure-pages@v5
-
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: docs
-
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

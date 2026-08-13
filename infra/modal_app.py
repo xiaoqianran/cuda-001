@@ -20,20 +20,24 @@ PROJECT_ROOT = "/proj"
 
 image = (
     modal.Image.from_registry(
-        "nvidia/cuda:12.4.1-devel-ubuntu22.04",
+        "nvidia/cuda:12.2.2-devel-ubuntu22.04",
         add_python="3.11",
     )
     .apt_install("g++", "make", "ca-certificates")
     .pip_install(
-        "numpy==2.0.2",
-        "numba==0.60.0",
+        "numpy==2.1.3",
+        "numba==0.61.2",
+        "cuda-python==12.2.1",
         "pillow==10.4.0",
         "opencv-python-headless==4.10.0.84",
     )
     .env(
         {
             "PYTHONUNBUFFERED": "1",
+            "PYTHONFAULTHANDLER": "1",
             "NUMBA_CACHE_DIR": "/tmp/numba_cache",
+            "NUMBA_CUDA_USE_NVIDIA_BINDING": "1",
+            "CUDA_HOME": "/usr/local/cuda",
             "PYTHONPATH": "/proj:/proj/infra",
         }
     )
@@ -141,7 +145,7 @@ def run_project(spec: dict) -> dict:
                 rc, run_log = _run(cmd, cwd, env, timeout=2400)
                 log_parts.append("----- run -----\n" + run_log)
         else:
-            cmd = ["python3", spec["entry"]]
+            cmd = ["python3", "-X", "faulthandler", spec["entry"]]
             rc, run_log = _run(cmd, cwd, env, timeout=2400)
             log_parts.append("----- run -----\n" + run_log)
     except subprocess.TimeoutExpired as exc:
