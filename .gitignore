@@ -35,6 +35,11 @@
 *.pfm
 *.png
 !**/README.md
+!docs/**
+!docs/**/*.png
+!docs/**/*.jpg
+!docs/**/*.webp
+!docs/**/*.svg
 
 # Python
 __pycache__/

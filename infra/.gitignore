@@ -1,0 +1,5 @@
+# Modal / local runner
+infra/__pycache__/
+*.pyc
+.modal.toml
+modal.toml
