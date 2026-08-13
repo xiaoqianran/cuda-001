@@ -1,0 +1,28 @@
+{
+  "id": "044",
+  "title": "分形",
+  "level": 3,
+  "category": "proc",
+  "category_label": "程序化",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "fractal.py",
+  "status": "ok",
+  "elapsed_sec": 5.88,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "julia.png",
+    "mandelbrot.png",
+    "mandelbrot_zoom.png",
+    "mandelbulb.png"
+  ],
+  "files": [
+    "julia.png",
+    "mandelbrot.png",
+    "mandelbrot_zoom.png",
+    "mandelbulb.png"
+  ],
+  "log": "project=044 title=分形\nkind=python entry=fractal.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/044\n----- run -----\n============================================================\n044 | 分形渲染\n============================================================\nMandelbulb: 1923.4 ms\n✓ 2D/3D 分形完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:33:32Z"
+}
