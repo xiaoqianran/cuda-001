@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:25:59Z",
-  "completed": 1,
+  "updated_at": "2026-08-13T07:28:45Z",
+  "completed": 2,
   "failed": 0,
-  "pending": 49,
+  "pending": 48,
   "categories": [
     {
       "id": "post",
@@ -88,14 +88,22 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "gaussian_blur.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 46.034,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "blur_15x15.png",
+        "blur_5x5.png",
+        "original.png"
+      ],
+      "files": [
+        "blur_15x15.png",
+        "blur_5x5.png",
+        "original.png"
+      ],
+      "log": "project=002 title=高斯模糊 shared mem\nkind=python entry=gaussian_blur.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/002\n----- run -----\n============================================================\n002 | GPU 高斯模糊 (shared memory tile + halo)\n============================================================\n图像: (1080, 1920, 3), GPU: Tesla T4\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000                                                                \n\n---- 核 5x5 (sigma≈自动) ----\n  256 切片 CPU/GPU 最大差: 0.0\n  GPU mode=clamp  :   11.894 ms\n  GPU mode=reflect:    9.182 ms\n  GPU mode=wrap   :   10.026 ms\n  已保存 blur_5x5.png\n\n---- 核 15x15 (sigma≈自动) ----\n  256 切片 CPU/GPU 最大差: 0.0\n  GPU mode=clamp  :   28.781 ms\n  GPU mode=reflect:   16.639 ms\n  GPU mode=wrap   :   16.597 ms\n  已保存 blur_15x15.png\n\n✓ tile + halo 共享内存卷积跑通。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:28:45Z"
     },
     {
       "id": "003",
