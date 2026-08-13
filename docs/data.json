@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:30:58Z",
-  "completed": 20,
+  "updated_at": "2026-08-13T07:31:05Z",
+  "completed": 21,
   "failed": 0,
-  "pending": 30,
+  "pending": 29,
   "categories": [
     {
       "id": "post",
@@ -553,14 +553,20 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "pbr",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.879,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "brdf_lut.png",
+        "pbr.png"
+      ],
+      "files": [
+        "brdf_lut.ppm",
+        "pbr.ppm"
+      ],
+      "log": "project=021 title=PBR\nkind=cuda entry=pbr\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/021\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o pbr src/pbr.cu\n----- run -----\n============================================================\n021 | PBR Cook-Torrance + IBL LUT + Bloom\n============================================================\n金属度×粗糙度 3x3 球；工作流: metallic-roughness\n✓ PBR 管线完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:31:05Z"
     },
     {
       "id": "022",
