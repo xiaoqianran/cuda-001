@@ -1,0 +1,18 @@
+{
+  "id": "001",
+  "title": "亮度 / 灰度",
+  "level": 1,
+  "category": "post",
+  "category_label": "图像后处理",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "brightness_grayscale.py",
+  "status": "fail",
+  "elapsed_sec": 7.684,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [],
+  "files": [],
+  "log": "project=001 title=亮度 / 灰度\nkind=python entry=brightness_grayscale.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/001\n----- run -----\n============================================================\n001 | GPU 亮度调节 & 灰度化  (Numba CUDA)\n============================================================\nGPU      : Tesla T4\nCC       : (7, 5)\n\n图像尺寸 : 1920 x 1080  (1080p), dtype=uint8, shape=(1080, 1920, 3)\n像素总数 : 2,073,600  |  数据量 ≈ 6.22 MB\n\n---- grid / block / thread → 像素映射 ----\n  block = (16, 16)           # 每个 block 16x16 = 256 线程\n  grid  = (120, 68)            # 覆盖 1920x1080 需要的 block 数\n  总线程 ≈ 1920 x 1088 = 2,088,960\n  像素 (x, y) = (blockIdx.x * 16 + threadIdx.x,\n                 blockIdx.y * 16 + threadIdx.y)\n  若 x>=width 或 y>=height → 该线程直接 return（边界保护）\n\n---- 亮度调节 (factor = 1.5) ----\n",
+  "error": "exit -11",
+  "updated_at": "2026-08-13T07:21:20Z"
+}
