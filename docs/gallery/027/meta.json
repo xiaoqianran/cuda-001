@@ -1,0 +1,22 @@
+{
+  "id": "027",
+  "title": "烟花",
+  "level": 2,
+  "category": "particles",
+  "category_label": "粒子仿真",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "fireworks.py",
+  "status": "ok",
+  "elapsed_sec": 3.387,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "fireworks.png"
+  ],
+  "files": [
+    "fireworks.png"
+  ],
+  "log": "project=027 title=烟花\nkind=python entry=fireworks.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/027\n----- run -----\n============================================================\n027 | 烟花粒子 MAX=100000\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n90 帧模拟: 974.5 ms\n活跃粒子: 6\n✓ 烟花 emit/update/render 完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:31:40Z"
+}
