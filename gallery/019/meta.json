@@ -1,0 +1,22 @@
+{
+  "id": "019",
+  "title": "纹理 + 法线",
+  "level": 2,
+  "category": "realtime",
+  "category_label": "实时渲染",
+  "stack": "C++ 软件光栅",
+  "kind": "cpp",
+  "entry": "texture_normal",
+  "status": "ok",
+  "elapsed_sec": 1.143,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "textured_normal.png"
+  ],
+  "files": [
+    "textured_normal.ppm"
+  ],
+  "log": "project=019 title=纹理 + 法线\nkind=cpp entry=texture_normal\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/019\n----- make -----\ng++ -O3 -std=c++17 -o texture_normal src/texture_normal.cpp -lm\n----- run -----\n============================================================\n019 | 纹理 + 法线贴图 + Mipmap + TBN\n============================================================\nMipmap 层数: 9\n过滤模式: bilinear + mip 选择；TBN 已应用\n✓ 纹理系统核心演示完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:30:55Z"
+}

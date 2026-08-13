@@ -1,0 +1,6 @@
+draw_calls 21
+culled 0
+ms_cull_gbuf 0.001486
+ms_light 33.9283
+ms_post 1.46548
+camera_pos 0 1.2 3

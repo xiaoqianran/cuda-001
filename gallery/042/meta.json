@@ -1,0 +1,28 @@
+{
+  "id": "042",
+  "title": "噪声纹理",
+  "level": 2,
+  "category": "proc",
+  "category_label": "程序化",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "noise_tex.py",
+  "status": "ok",
+  "elapsed_sec": 5.079,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "fbm.png",
+    "fire.png",
+    "marble.png",
+    "wood.png"
+  ],
+  "files": [
+    "fbm.png",
+    "fire.png",
+    "marble.png",
+    "wood.png"
+  ],
+  "log": "project=042 title=噪声纹理\nkind=python entry=noise_tex.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/042\n----- run -----\n============================================================\n042 | 程序化噪声与纹理\n============================================================\n512x512 生成: 1457.8 ms\n✓ Perlin/fBM/Worley 纹理完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:33:16Z"
+}

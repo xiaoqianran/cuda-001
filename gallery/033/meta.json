@@ -1,0 +1,24 @@
+{
+  "id": "033",
+  "title": "光流",
+  "level": 3,
+  "category": "video",
+  "category_label": "视频 / 图像生成",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "optical_flow.py",
+  "status": "ok",
+  "elapsed_sec": 2.883,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "flow.png",
+    "frame1.png"
+  ],
+  "files": [
+    "flow.png",
+    "frame1.png"
+  ],
+  "log": "project=033 title=光流\nkind=python entry=optical_flow.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/033\n----- run -----\n============================================================\n033 | Lucas-Kanade 金字塔光流\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 20 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 80 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n平均光流 ux=1.930 (期望≈2)\n✓ 光流估计完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:32:17Z"
+}

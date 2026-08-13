@@ -1,0 +1,26 @@
+{
+  "id": "035",
+  "title": "超分辨率",
+  "level": 3,
+  "category": "video",
+  "category_label": "视频 / 图像生成",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "super_res.py",
+  "status": "ok",
+  "elapsed_sec": 3.506,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "bicubic.png",
+    "lanczos.png",
+    "lr.png"
+  ],
+  "files": [
+    "bicubic.png",
+    "lanczos.png",
+    "lr.png"
+  ],
+  "log": "project=035 title=超分辨率\nkind=python entry=super_res.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/035\n----- run -----\n============================================================\n035 | 传统 GPU 超分辨率\n============================================================\n双三次+锐化: 722.99 ms | PSNR=39.39 SSIM=0.9990\nLanczos:      385.88 ms | PSNR=38.97 SSIM=0.9988\n✓ 超分 + 客观指标完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:32:31Z"
+}

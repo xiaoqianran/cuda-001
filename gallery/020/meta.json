@@ -1,0 +1,22 @@
+{
+  "id": "020",
+  "title": "Shadow Mapping",
+  "level": 3,
+  "category": "realtime",
+  "category_label": "实时渲染",
+  "stack": "C++ 软件光栅",
+  "kind": "cpp",
+  "entry": "shadow_map",
+  "status": "ok",
+  "elapsed_sec": 0.893,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "shadow.png"
+  ],
+  "files": [
+    "shadow.ppm"
+  ],
+  "log": "project=020 title=Shadow Mapping\nkind=cpp entry=shadow_map\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/020\n----- make -----\ng++ -O3 -std=c++17 -o shadow_map src/shadow_map.cpp -lm\n----- run -----\n============================================================\n020 | Shadow Mapping + PCF + bias + CSM(2)\n============================================================\nbias=0.050 PCF=3x3 cascades=2\n✓ Shadow Mapping 完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:30:58Z"
+}

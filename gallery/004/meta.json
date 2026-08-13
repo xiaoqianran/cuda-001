@@ -1,0 +1,28 @@
+{
+  "id": "004",
+  "title": "Tone Mapping",
+  "level": 2,
+  "category": "post",
+  "category_label": "图像后处理",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "tone_mapping.py",
+  "status": "ok",
+  "elapsed_sec": 3.225,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "aces.png",
+    "hdr_vis.png",
+    "local_reinhard.png",
+    "reinhard.png"
+  ],
+  "files": [
+    "aces.png",
+    "hdr_vis.png",
+    "local_reinhard.png",
+    "reinhard.png"
+  ],
+  "log": "project=004 title=Tone Mapping\nkind=python entry=tone_mapping.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/004\n----- run -----\n============================================================\n004 | GPU Tone Mapping (Reinhard / ACES / Local)\n============================================================\nHDR shape=(540, 960, 3) range=[0.070, 20.160]\nReinhard: 12.063 ms | ACES: 8.492 ms | Local: 9.768 ms\n已保存 reinhard/aces/local_reinhard.png\n✓ HDR→LDR 色调映射闭环完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:28:57Z"
+}

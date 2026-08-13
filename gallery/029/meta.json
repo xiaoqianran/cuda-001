@@ -1,0 +1,22 @@
+{
+  "id": "029",
+  "title": "体积火焰",
+  "level": 3,
+  "category": "particles",
+  "category_label": "粒子仿真",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "volume_fire.py",
+  "status": "ok",
+  "elapsed_sec": 2.771,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "fire.png"
+  ],
+  "files": [
+    "fire.png"
+  ],
+  "log": "project=029 title=体积火焰\nkind=python entry=volume_fire.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/029\n----- run -----\n============================================================\n029 | 体积火焰 ray march\n============================================================\n✓ 体积火焰完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:31:51Z"
+}

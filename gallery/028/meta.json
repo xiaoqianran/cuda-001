@@ -1,0 +1,22 @@
+{
+  "id": "028",
+  "title": "SPH 流体",
+  "level": 3,
+  "category": "particles",
+  "category_label": "粒子仿真",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "sph.py",
+  "status": "ok",
+  "elapsed_sec": 4.262,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "sph.png"
+  ],
+  "files": [
+    "sph.png"
+  ],
+  "log": "project=028 title=SPH 流体\nkind=python entry=sph.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/028\n----- run -----\n============================================================\n028 | SPH N=4096\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 32 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 32 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 32 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n30 步 SPH: 2313.0 ms\n✓ SPH + 密度表面可视化完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:31:46Z"
+}

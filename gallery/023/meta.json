@@ -1,0 +1,24 @@
+{
+  "id": "023",
+  "title": "屏幕空间效果",
+  "level": 3,
+  "category": "realtime",
+  "category_label": "实时渲染",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "ss_effects.py",
+  "status": "ok",
+  "elapsed_sec": 6.725,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "ss_final.png",
+    "ssao.png"
+  ],
+  "files": [
+    "ss_final.png",
+    "ssao.png"
+  ],
+  "log": "project=023 title=屏幕空间效果\nkind=python entry=ss_effects.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/023\n----- run -----\n============================================================\n023 | 屏幕空间效果全家桶\n============================================================\n  SSAO      : 542.540 ms\n  SSR       : 230.975 ms\n  Bloom+TM  : 372.294 ms\n  FXAA      : 384.131 ms\n  总计: 1529.939 ms\n✓ 屏幕空间效果管线完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:31:17Z"
+}

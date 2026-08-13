@@ -1,0 +1,23 @@
+{
+  "id": "032",
+  "title": "视频滤镜管线",
+  "level": 3,
+  "category": "video",
+  "category_label": "视频 / 图像生成",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "video_pipeline.py",
+  "status": "ok",
+  "elapsed_sec": 5.781,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "frame_000.png"
+  ],
+  "files": [
+    "frame_000.png",
+    "frame_010.png"
+  ],
+  "log": "project=032 title=视频滤镜管线\nkind=python entry=video_pipeline.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/032\n----- run -----\n============================================================\n032 | GPU 视频滤镜流水线\n============================================================\n1280x720 平均 38.13 ms/帧 → 26.2 fps\n目标 ≥30fps: 教学规模可接受\n✓ 视频 GPU 管线完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:32:12Z"
+}

@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:25:59Z",
-  "completed": 1,
+  "updated_at": "2026-08-13T07:33:58Z",
+  "completed": 47,
   "failed": 0,
-  "pending": 49,
+  "pending": 3,
   "categories": [
     {
       "id": "post",
@@ -88,14 +88,22 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "gaussian_blur.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 46.034,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "blur_15x15.png",
+        "blur_5x5.png",
+        "original.png"
+      ],
+      "files": [
+        "blur_15x15.png",
+        "blur_5x5.png",
+        "original.png"
+      ],
+      "log": "project=002 title=高斯模糊 shared mem\nkind=python entry=gaussian_blur.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/002\n----- run -----\n============================================================\n002 | GPU 高斯模糊 (shared memory tile + halo)\n============================================================\n图像: (1080, 1920, 3), GPU: Tesla T4\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000\u0000                                                                \n\n---- 核 5x5 (sigma≈自动) ----\n  256 切片 CPU/GPU 最大差: 0.0\n  GPU mode=clamp  :   11.894 ms\n  GPU mode=reflect:    9.182 ms\n  GPU mode=wrap   :   10.026 ms\n  已保存 blur_5x5.png\n\n---- 核 15x15 (sigma≈自动) ----\n  256 切片 CPU/GPU 最大差: 0.0\n  GPU mode=clamp  :   28.781 ms\n  GPU mode=reflect:   16.639 ms\n  GPU mode=wrap   :   16.597 ms\n  已保存 blur_15x15.png\n\n✓ tile + halo 共享内存卷积跑通。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:28:45Z"
     },
     {
       "id": "003",
@@ -106,14 +114,22 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "sobel_edge.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 3.385,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "binary.png",
+        "gray.png",
+        "magnitude.png"
+      ],
+      "files": [
+        "binary.png",
+        "gray.png",
+        "magnitude.png"
+      ],
+      "log": "project=003 title=Sobel 边缘\nkind=python entry=sobel_edge.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/003\n----- run -----\n============================================================\n003 | GPU Sobel 边缘检测\n============================================================\nGPU Sobel+二值化: 11.326 ms  (threshold=80.0)\nOpenCV CPU: 12.135 ms | 平均幅值差: 0.002\n加速比: 1.07x\n已保存 magnitude/binary.png\n✓ 单 kernel 融合 Gx/Gy/幅值/二值化 完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:28:51Z"
     },
     {
       "id": "004",
@@ -124,14 +140,24 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "tone_mapping.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 3.225,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "aces.png",
+        "hdr_vis.png",
+        "local_reinhard.png",
+        "reinhard.png"
+      ],
+      "files": [
+        "aces.png",
+        "hdr_vis.png",
+        "local_reinhard.png",
+        "reinhard.png"
+      ],
+      "log": "project=004 title=Tone Mapping\nkind=python entry=tone_mapping.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/004\n----- run -----\n============================================================\n004 | GPU Tone Mapping (Reinhard / ACES / Local)\n============================================================\nHDR shape=(540, 960, 3) range=[0.070, 20.160]\nReinhard: 12.063 ms | ACES: 8.492 ms | Local: 9.768 ms\n已保存 reinhard/aces/local_reinhard.png\n✓ HDR→LDR 色调映射闭环完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:28:57Z"
     },
     {
       "id": "005",
@@ -142,14 +168,22 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "hist_clahe.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 2.331,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "clahe.png",
+        "he.png",
+        "xray.png"
+      ],
+      "files": [
+        "clahe.png",
+        "he.png",
+        "xray.png"
+      ],
+      "log": "project=005 title=HE + CLAHE\nkind=python entry=hist_clahe.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/005\n----- run -----\n============================================================\n005 | 直方图均衡化 + CLAHE (atomicAdd)\n============================================================\n全局 HE: 1.662 ms | CLAHE: 14.220 ms\n原图对比度(std)=18.51 HE=73.57 CLAHE=27.48\n✓ atomic 直方图 + CLAHE 双线性合并完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:29:02Z"
     },
     {
       "id": "006",
@@ -160,14 +194,22 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "pipeline.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 2.859,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "input.png",
+        "pipeline_full.png",
+        "pipeline_sharp_tone.png"
+      ],
+      "files": [
+        "input.png",
+        "pipeline_full.png",
+        "pipeline_sharp_tone.png"
+      ],
+      "log": "project=006 title=多 Pass 管线\nkind=python entry=pipeline.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/006\n----- run -----\n============================================================\n006 | 多 Pass GPU 管线（显存驻留）\n============================================================\n\n管线 [full] order=['median', 'color', 'sharpen', 'tone']\n  pass median    : 584.648 ms\n  pass color     : 165.243 ms\n  pass sharpen   : 164.732 ms\n  pass tone      : 159.525 ms\n  总计: 1355.013 ms\n\n管线 [sharp_tone] order=['sharpen', 'tone']\n  pass sharpen   :   0.995 ms\n  pass tone      :   5.184 ms\n  总计: 17.112 ms\n\n✓ 多 pass 显存驻留管线跑通。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:29:08Z"
     },
     {
       "id": "007",
@@ -178,14 +220,22 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "bilateral",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 5.73,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "bilateral.png",
+        "gaussian.png",
+        "input.png"
+      ],
+      "files": [
+        "bilateral.ppm",
+        "gaussian.ppm",
+        "input.ppm"
+      ],
+      "log": "project=007 title=Bilateral Filter\nkind=cuda entry=bilateral\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/007\n----- make -----\nnvcc -arch=sm_75 -O3 -o bilateral src/bilateral.cu\n----- run -----\n============================================================\n007 | GPU Bilateral Filter (shared + texture)\n============================================================\n分辨率: 1920x1080\n高斯模糊:      6.107 ms\n双边(shared):    6.161 ms\n双边(texture):    8.127 ms\n已保存 output/*.ppm （对比双边 vs 高斯：边缘应更清晰）\n✓ Bilateral shared+texture 完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:29:30Z"
     },
     {
       "id": "008",
@@ -196,14 +246,26 @@
       "stack": "C++ cuFFT",
       "kind": "cuda",
       "entry": "fft_filter",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.356,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "band_butter.png",
+        "high_gauss.png",
+        "input.png",
+        "low_ideal.png",
+        "spectrum.png"
+      ],
+      "files": [
+        "band_butter.pgm",
+        "high_gauss.pgm",
+        "input.pgm",
+        "low_ideal.pgm",
+        "spectrum.pgm"
+      ],
+      "log": "project=008 title=FFT 频域滤波\nkind=cuda entry=fft_filter\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/008\n----- make -----\nnvcc -arch=sm_75 -O3 -I/usr/local/cuda/include -L/usr/local/cuda/lib64 -lcufft -o fft_filter src/fft_filter.cu\n----- run -----\n============================================================\n008 | cuFFT 频域滤波\n============================================================\n写出 output/low_ideal.pgm\n写出 output/high_gauss.pgm\n写出 output/band_butter.pgm\n✓ cuFFT 低通/高通/带通 + 频谱可视化完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:29:38Z"
     },
     {
       "id": "009",
@@ -214,14 +276,20 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "simple_rt",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.245,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "cpu.png",
+        "gpu.png"
+      ],
+      "files": [
+        "cpu.ppm",
+        "gpu.ppm"
+      ],
+      "log": "project=009 title=最简单光追\nkind=cuda entry=simple_rt\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/009\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o simple_rt src/simple_rt.cu\n----- run -----\n============================================================\n009 | 最简单光线追踪器 (CPU → GPU)\n============================================================\nCPU: 11.234 ms | GPU: 0.029 ms | 加速比: 385.4x\nCPU/GPU 总像素差: 0 (期望 0)\n第一张 ray traced 图像已写出 output/gpu.ppm\n✓ 一像素一光线一核程 闭环完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:29:45Z"
     },
     {
       "id": "010",
@@ -232,14 +300,18 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "scene_rt",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.128,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "scene.png"
+      ],
+      "files": [
+        "scene.ppm"
+      ],
+      "log": "project=010 title=多物体 + 阴影 + 反射\nkind=cuda entry=scene_rt\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/010\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o scene_rt src/scene_rt.cu\n----- run -----\n============================================================\n010 | 多物体 + Phong + 阴影 + 反射\n============================================================\n渲染 960x540 @ 反射深度3: 0.332 ms\n✓ 多物体场景 + 阴影 + 镜面反射完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:29:52Z"
     },
     {
       "id": "011",
@@ -250,14 +322,18 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "mesh_bvh",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 8.385,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "bunny_bvh.png"
+      ],
+      "files": [
+        "bunny_bvh.ppm"
+      ],
+      "log": "project=011 title=三角网格 + BVH\nkind=cuda entry=mesh_bvh\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/011\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o mesh_bvh src/mesh_bvh.cu\n----- run -----\n============================================================\n011 | 三角形网格 + BVH (Möller-Trumbore)\n============================================================\n三角形数: 4864\nBVH 节点数: 3583 root=0\n无 BVH: 39.612 ms | 有 BVH: 0.147 ms | 加速: 268.94x\n✓ Möller-Trumbore + BVH 完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:30:03Z"
     },
     {
       "id": "012",
@@ -268,14 +344,24 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "aa_dof",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 5.007,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "spp16_aa.png",
+        "spp1_pin.png",
+        "spp32_dof.png",
+        "spp64_dof_rnd.png"
+      ],
+      "files": [
+        "spp16_aa.ppm",
+        "spp1_pin.ppm",
+        "spp32_dof.ppm",
+        "spp64_dof_rnd.ppm"
+      ],
+      "log": "project=012 title=AA + 景深\nkind=cuda entry=aa_dof\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/012\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o aa_dof src/aa_dof.cu\n----- run -----\n============================================================\n012 | 抗锯齿 + 景深 (Halton/随机)\n============================================================\nspp1_pin: spp=1 lens=0.00 -> 0.38 ms\nspp16_aa: spp=16 lens=0.00 -> 1.84 ms\nspp32_dof: spp=32 lens=0.08 -> 3.25 ms\nspp64_dof_rnd: spp=64 lens=0.08 -> 2.01 ms\n✓ AA + DOF + Halton 采样完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:30:10Z"
     },
     {
       "id": "013",
@@ -286,14 +372,18 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "materials",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 5.448,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "materials.png"
+      ],
+      "files": [
+        "materials.ppm"
+      ],
+      "log": "project=013 title=材质系统\nkind=cuda entry=materials\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/013\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o materials src/materials.cu\n----- run -----\n============================================================\n013 | 材质系统 (金属/玻璃/发光/Cook-Torrance)\n============================================================\n渲染 640x360 spp=32: 5.16 ms\n✓ 材质多态分发 + 路径追踪完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:30:18Z"
     },
     {
       "id": "014",
@@ -304,14 +394,22 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "path_gi",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.975,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "ao.png",
+        "gi1.png",
+        "path.png"
+      ],
+      "files": [
+        "ao.ppm",
+        "gi1.ppm",
+        "path.ppm"
+      ],
+      "log": "project=014 title=AO + GI 路径追踪\nkind=cuda entry=path_gi\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/014\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o path_gi src/path_gi.cu\n----- run -----\n============================================================\n014 | AO + GI + 路径追踪\n============================================================\nao spp=32: 8.5 ms\ngi1 spp=64: 2.7 ms\npath spp=128: 10.6 ms\n提示: 将 path spp 提到 1024 可接近照片级（更慢）。\n✓ AO + GI + 路径追踪完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:30:26Z"
     },
     {
       "id": "015",
@@ -322,14 +420,18 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "rt_opt",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.924,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "opt.png"
+      ],
+      "files": [
+        "opt.ppm"
+      ],
+      "log": "project=015 title=光追优化\nkind=cuda entry=rt_opt\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/015\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o rt_opt src/rt_opt.cu\n----- run -----\n============================================================\n015 | 光追优化 (分组着色 + streams)\n============================================================\n基线: 0.081 ms | 材质分组+streams: 0.126 ms | 比: 0.64x\n✓ 优化对比报告完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:30:33Z"
     },
     {
       "id": "016",
@@ -340,14 +442,18 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "volume_mb",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.293,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "volume_mb.png"
+      ],
+      "files": [
+        "volume_mb.ppm"
+      ],
+      "log": "project=016 title=运动模糊 + 体积\nkind=cuda entry=volume_mb\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/016\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o volume_mb src/volume_mb.cu\n----- run -----\n============================================================\n016 | 运动模糊 + 体积散射 (delta tracking)\n============================================================\n640x360 spp=64: 2.0 ms\n✓ 运动模糊 + 体积散射完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:30:40Z"
     },
     {
       "id": "017",
@@ -358,14 +464,19 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "mini_pbrt",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 5.388,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "beauty.png"
+      ],
+      "files": [
+        "beauty.pfm",
+        "beauty.ppm"
+      ],
+      "log": "project=017 title=小型 PBRT\nkind=cuda entry=mini_pbrt\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/017\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o mini_pbrt src/mini_pbrt.cu\n----- run -----\n============================================================\n017 | 小型离线渲染器 (JSON 场景驱动)\n============================================================\n场景: scenes/demo.json  res=640x360 spp=64 cam=0 spheres=4\n渲染完成: 8.8 ms\n输出: output/beauty.ppm + beauty.pfm (HDR)\n✓ 小型 PBRT 管线骨架完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:30:48Z"
     },
     {
       "id": "018",
@@ -376,14 +487,18 @@
       "stack": "C++ 软件光栅",
       "kind": "cpp",
       "entry": "soft_gl",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 1.402,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "cube.png"
+      ],
+      "files": [
+        "cube.ppm"
+      ],
+      "log": "project=018 title=管线立方体 Phong\nkind=cpp entry=soft_gl\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/018\n----- make -----\ng++ -O3 -std=c++17 -o soft_gl src/soft_gl.cpp -lm\n----- run -----\n============================================================\n018 | 软件管线：旋转立方体 + Phong (离线)\n============================================================\n管线: 顶点 → MVP(VS) → 光栅 → Phong(FS) → PPM\n已写 output/cube.ppm，调参文件 params.txt\n✓ 完整渲染管线离线演示完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:30:52Z"
     },
     {
       "id": "019",
@@ -394,14 +509,18 @@
       "stack": "C++ 软件光栅",
       "kind": "cpp",
       "entry": "texture_normal",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 1.143,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "textured_normal.png"
+      ],
+      "files": [
+        "textured_normal.ppm"
+      ],
+      "log": "project=019 title=纹理 + 法线\nkind=cpp entry=texture_normal\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/019\n----- make -----\ng++ -O3 -std=c++17 -o texture_normal src/texture_normal.cpp -lm\n----- run -----\n============================================================\n019 | 纹理 + 法线贴图 + Mipmap + TBN\n============================================================\nMipmap 层数: 9\n过滤模式: bilinear + mip 选择；TBN 已应用\n✓ 纹理系统核心演示完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:30:55Z"
     },
     {
       "id": "020",
@@ -412,14 +531,18 @@
       "stack": "C++ 软件光栅",
       "kind": "cpp",
       "entry": "shadow_map",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 0.893,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "shadow.png"
+      ],
+      "files": [
+        "shadow.ppm"
+      ],
+      "log": "project=020 title=Shadow Mapping\nkind=cpp entry=shadow_map\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/020\n----- make -----\ng++ -O3 -std=c++17 -o shadow_map src/shadow_map.cpp -lm\n----- run -----\n============================================================\n020 | Shadow Mapping + PCF + bias + CSM(2)\n============================================================\nbias=0.050 PCF=3x3 cascades=2\n✓ Shadow Mapping 完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:30:58Z"
     },
     {
       "id": "021",
@@ -430,14 +553,20 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "pbr",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.879,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "brdf_lut.png",
+        "pbr.png"
+      ],
+      "files": [
+        "brdf_lut.ppm",
+        "pbr.ppm"
+      ],
+      "log": "project=021 title=PBR\nkind=cuda entry=pbr\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/021\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o pbr src/pbr.cu\n----- run -----\n============================================================\n021 | PBR Cook-Torrance + IBL LUT + Bloom\n============================================================\n金属度×粗糙度 3x3 球；工作流: metallic-roughness\n✓ PBR 管线完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:31:05Z"
     },
     {
       "id": "022",
@@ -448,14 +577,18 @@
       "stack": "C++ 软件光栅",
       "kind": "cpp",
       "entry": "deferred",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 1.046,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "deferred.png"
+      ],
+      "files": [
+        "deferred.ppm"
+      ],
+      "log": "project=022 title=延迟渲染\nkind=cpp entry=deferred\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/022\n----- make -----\ng++ -O3 -std=c++17 -o deferred src/deferred.cpp -lm\n----- run -----\n============================================================\n022 | Deferred Shading (G-Buffer + 多光源)\n============================================================\n光源数: 32 | G-Buffer: pos/normal/albedo/metal-rough\n✓ 延迟渲染管线完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:31:08Z"
     },
     {
       "id": "023",
@@ -466,14 +599,20 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "ss_effects.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 6.725,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "ss_final.png",
+        "ssao.png"
+      ],
+      "files": [
+        "ss_final.png",
+        "ssao.png"
+      ],
+      "log": "project=023 title=屏幕空间效果\nkind=python entry=ss_effects.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/023\n----- run -----\n============================================================\n023 | 屏幕空间效果全家桶\n============================================================\n  SSAO      : 542.540 ms\n  SSR       : 230.975 ms\n  Bloom+TM  : 372.294 ms\n  FXAA      : 384.131 ms\n  总计: 1529.939 ms\n✓ 屏幕空间效果管线完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:31:17Z"
     },
     {
       "id": "024",
@@ -484,14 +623,18 @@
       "stack": "C++ CUDA",
       "kind": "cuda",
       "entry": "terrain",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.925,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "terrain.png"
+      ],
+      "files": [
+        "terrain.ppm"
+      ],
+      "log": "project=024 title=地形 LOD\nkind=cuda entry=terrain\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/024\n----- make -----\nnvcc -arch=sm_75 -O3 -I../common -o terrain src/terrain.cu\nsrc/terrain.cu(48): warning #550-D: variable \"hit\" was set but never used\n      float t=1.f; bool hit=false; Vec3 p,n;\n                        ^\n\nRemark: The warnings can be suppressed with \"-diag-suppress <warning-number>\"\n\n----- run -----\n============================================================\n024 | 地形 LOD + splat + 水面\n============================================================\n渲染: 3.0 ms (目标概念 16km 场景用噪声 fbm 代替真实数据)\n✓ 地形管线完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:31:25Z"
     },
     {
       "id": "025",
@@ -502,14 +645,19 @@
       "stack": "C++ 软件光栅",
       "kind": "cpp",
       "entry": "mini_engine",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 1.42,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "frame.png"
+      ],
+      "files": [
+        "frame.ppm",
+        "stats.txt"
+      ],
+      "log": "project=025 title=迷你引擎\nkind=cpp entry=mini_engine\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/025\n----- make -----\ng++ -O3 -std=c++17 -o mini_engine src/mini_engine.cpp -lm\n----- run -----\n============================================================\n025 | 迷你引擎渲染器（无头帧输出）\n============================================================\ndraw_calls=21 culled=0 light=33.93ms post=1.47ms\n✓ 迷你引擎无头帧 + 统计完成（见 docs/vulkan_pipeline.md）。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:31:29Z"
     },
     {
       "id": "026",
@@ -520,14 +668,18 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "particles.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 2.787,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "particles.png"
+      ],
+      "files": [
+        "particles.png"
+      ],
+      "log": "project=026 title=粒子基础\nkind=python entry=particles.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/026\n----- run -----\n============================================================\n026 | GPU 粒子 N=100000\n============================================================\n60 帧更新: 190.21 ms\n渲染: 190.50 ms\n✓ 10万粒子 GPU 更新+渲染完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:31:34Z"
     },
     {
       "id": "027",
@@ -538,14 +690,18 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "fireworks.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 3.387,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "fireworks.png"
+      ],
+      "files": [
+        "fireworks.png"
+      ],
+      "log": "project=027 title=烟花\nkind=python entry=fireworks.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/027\n----- run -----\n============================================================\n027 | 烟花粒子 MAX=100000\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n90 帧模拟: 974.5 ms\n活跃粒子: 6\n✓ 烟花 emit/update/render 完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:31:40Z"
     },
     {
       "id": "028",
@@ -556,14 +712,18 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "sph.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.262,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "sph.png"
+      ],
+      "files": [
+        "sph.png"
+      ],
+      "log": "project=028 title=SPH 流体\nkind=python entry=sph.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/028\n----- run -----\n============================================================\n028 | SPH N=4096\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 32 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 32 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 32 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n30 步 SPH: 2313.0 ms\n✓ SPH + 密度表面可视化完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:31:46Z"
     },
     {
       "id": "029",
@@ -574,14 +734,18 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "volume_fire.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 2.771,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "fire.png"
+      ],
+      "files": [
+        "fire.png"
+      ],
+      "log": "project=029 title=体积火焰\nkind=python entry=volume_fire.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/029\n----- run -----\n============================================================\n029 | 体积火焰 ray march\n============================================================\n✓ 体积火焰完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:31:51Z"
     },
     {
       "id": "030",
@@ -592,14 +756,18 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "cloth.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 2.991,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "cloth.png"
+      ],
+      "files": [
+        "cloth.png"
+      ],
+      "log": "project=030 title=布料\nkind=python entry=cloth.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/030\n----- run -----\n============================================================\n030 | 布料 32x32\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 8 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 8 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 8 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n✓ 布料 Verlet+约束 完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:31:56Z"
     },
     {
       "id": "031",
@@ -610,14 +778,22 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "fracture.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 3.172,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "fracture_fly.png",
+        "fracture_impact.png",
+        "fracture_rest.png"
+      ],
+      "files": [
+        "fracture_fly.png",
+        "fracture_impact.png",
+        "fracture_rest.png"
+      ],
+      "log": "project=031 title=碎片化\nkind=python entry=fracture.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/031\n----- run -----\n============================================================\n031 | Voronoi 碎片化撞击\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 16 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 16 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n  阶段 rest 已保存\n  阶段 impact 已保存\n  阶段 fly 已保存\n✓ 破碎动画序列完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:32:01Z"
     },
     {
       "id": "032",
@@ -628,14 +804,19 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "video_pipeline.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 5.781,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "frame_000.png"
+      ],
+      "files": [
+        "frame_000.png",
+        "frame_010.png"
+      ],
+      "log": "project=032 title=视频滤镜管线\nkind=python entry=video_pipeline.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/032\n----- run -----\n============================================================\n032 | GPU 视频滤镜流水线\n============================================================\n1280x720 平均 38.13 ms/帧 → 26.2 fps\n目标 ≥30fps: 教学规模可接受\n✓ 视频 GPU 管线完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:32:12Z"
     },
     {
       "id": "033",
@@ -646,14 +827,20 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "optical_flow.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 2.883,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "flow.png",
+        "frame1.png"
+      ],
+      "files": [
+        "flow.png",
+        "frame1.png"
+      ],
+      "log": "project=033 title=光流\nkind=python entry=optical_flow.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/033\n----- run -----\n============================================================\n033 | Lucas-Kanade 金字塔光流\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 20 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 80 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n平均光流 ux=1.930 (期望≈2)\n✓ 光流估计完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:32:17Z"
     },
     {
       "id": "034",
@@ -664,14 +851,22 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "style_transfer.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 5.826,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "oil.png",
+        "sketch.png",
+        "watercolor.png"
+      ],
+      "files": [
+        "oil.png",
+        "sketch.png",
+        "watercolor.png"
+      ],
+      "log": "project=034 title=风格迁移\nkind=python entry=style_transfer.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/034\n----- run -----\n============================================================\n034 | 风格迁移\n============================================================\n  oil         :  17.032 ms\n  sketch      :   3.291 ms\n  watercolor  :   3.586 ms\n✓ 三种艺术风格完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:32:25Z"
     },
     {
       "id": "035",
@@ -682,14 +877,22 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "super_res.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 3.506,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "bicubic.png",
+        "lanczos.png",
+        "lr.png"
+      ],
+      "files": [
+        "bicubic.png",
+        "lanczos.png",
+        "lr.png"
+      ],
+      "log": "project=035 title=超分辨率\nkind=python entry=super_res.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/035\n----- run -----\n============================================================\n035 | 传统 GPU 超分辨率\n============================================================\n双三次+锐化: 722.99 ms | PSNR=39.39 SSIM=0.9990\nLanczos:      385.88 ms | PSNR=38.97 SSIM=0.9988\n✓ 超分 + 客观指标完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:32:31Z"
     },
     {
       "id": "036",
@@ -700,14 +903,26 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "panorama.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 3.633,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "cam0_erp.png",
+        "cam1_erp.png",
+        "cam2_erp.png",
+        "pano_hdr_merge.png",
+        "panorama.png"
+      ],
+      "files": [
+        "cam0_erp.png",
+        "cam1_erp.png",
+        "cam2_erp.png",
+        "pano_hdr_merge.png",
+        "panorama.png"
+      ],
+      "log": "project=036 title=全景拼接\nkind=python entry=panorama.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/036\n----- run -----\n============================================================\n036 | 鱼眼拼接 ERP 全景\n============================================================\nERP: 1024x512\n✓ 全景拼接完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:32:39Z"
     },
     {
       "id": "037",
@@ -718,14 +933,18 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "volume_render.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 3.182,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "volume.png"
+      ],
+      "files": [
+        "volume.png"
+      ],
+      "log": "project=037 title=体渲染\nkind=python entry=volume_render.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/037\n----- run -----\n============================================================\n037 | 体渲染\n============================================================\n渲染: 888.0 ms\n✓ CT 体渲染完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:32:44Z"
     },
     {
       "id": "038",
@@ -736,14 +955,22 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "flow_viz.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 3.462,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "advection.png",
+        "lic.png",
+        "streamlines.png"
+      ],
+      "files": [
+        "advection.png",
+        "lic.png",
+        "streamlines.png"
+      ],
+      "log": "project=038 title=流场\nkind=python entry=flow_viz.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/038\n----- run -----\n============================================================\n038 | 流场可视化 RK4 + LIC\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 2 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n✓ 流线 / LIC / advection 完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:32:50Z"
     },
     {
       "id": "039",
@@ -754,14 +981,18 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "marching_cubes.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.215,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "mc_iso.png"
+      ],
+      "files": [
+        "mc_iso.png"
+      ],
+      "log": "project=039 title=Marching Cubes\nkind=python entry=marching_cubes.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/039\n----- run -----\n============================================================\n039 | Marching Cubes 等值面\n============================================================\n等值面 iso=0.5: 顶点数=3480\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 5 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n等值面 iso=0.3: 顶点数=6936\n✓ Marching Cubes 完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:32:57Z"
     },
     {
       "id": "040",
@@ -772,14 +1003,18 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "point_cloud.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 2.581,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "pointcloud.png"
+      ],
+      "files": [
+        "pointcloud.png"
+      ],
+      "log": "project=040 title=点云\nkind=python entry=point_cloud.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/040\n----- run -----\n============================================================\n040 | 点云渲染 N=150000\n============================================================\n渲染: 554.3 ms\n✓ 点云 LOD + 视锥剔除完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:33:01Z"
     },
     {
       "id": "041",
@@ -790,14 +1025,20 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "seismic_viz.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 3.022,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "seismic_slice.png",
+        "seismic_volume.png"
+      ],
+      "files": [
+        "seismic_slice.png",
+        "seismic_volume.png"
+      ],
+      "log": "project=041 title=地震体\nkind=python entry=seismic_viz.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/041\n----- run -----\n============================================================\n041 | 地震体分块可视化\n============================================================\n  chunk 0 已流式渲染\n  chunk 1 已流式渲染\n  chunk 2 已流式渲染\n✓ 分块体渲染 + 切片完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:33:07Z"
     },
     {
       "id": "042",
@@ -808,14 +1049,24 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "noise_tex.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 5.079,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "fbm.png",
+        "fire.png",
+        "marble.png",
+        "wood.png"
+      ],
+      "files": [
+        "fbm.png",
+        "fire.png",
+        "marble.png",
+        "wood.png"
+      ],
+      "log": "project=042 title=噪声纹理\nkind=python entry=noise_tex.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/042\n----- run -----\n============================================================\n042 | 程序化噪声与纹理\n============================================================\n512x512 生成: 1457.8 ms\n✓ Perlin/fBM/Worley 纹理完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:33:16Z"
     },
     {
       "id": "043",
@@ -826,14 +1077,18 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "proc_terrain.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.679,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "terrain.png"
+      ],
+      "files": [
+        "terrain.png"
+      ],
+      "log": "project=043 title=程序化地形\nkind=python entry=proc_terrain.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/043\n----- run -----\n============================================================\n043 | 程序化地形 + 生物群系\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n  chunk (0,0) 已生成\n  chunk (1,0) 已生成\n  chunk (0,1) 已生成\n✓ 程序化地形完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:33:23Z"
     },
     {
       "id": "044",
@@ -844,14 +1099,24 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "fractal.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 5.88,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "julia.png",
+        "mandelbrot.png",
+        "mandelbrot_zoom.png",
+        "mandelbulb.png"
+      ],
+      "files": [
+        "julia.png",
+        "mandelbrot.png",
+        "mandelbrot_zoom.png",
+        "mandelbulb.png"
+      ],
+      "log": "project=044 title=分形\nkind=python entry=fractal.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/044\n----- run -----\n============================================================\n044 | 分形渲染\n============================================================\nMandelbulb: 1923.4 ms\n✓ 2D/3D 分形完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:33:32Z"
     },
     {
       "id": "045",
@@ -862,14 +1127,20 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "vegetation.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.675,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "grass.png",
+        "tree_lsystem.png"
+      ],
+      "files": [
+        "grass.png",
+        "tree_lsystem.png"
+      ],
+      "log": "project=045 title=植被\nkind=python entry=vegetation.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/045\n----- run -----\n============================================================\n045 | 植被与森林\n============================================================\nL-system 树段数: 4096\n草实例: 80000\n✓ 植被系统完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:33:39Z"
     },
     {
       "id": "046",
@@ -880,14 +1151,20 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "stable_fluids.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 7.056,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "smoke.png",
+        "velocity.png"
+      ],
+      "files": [
+        "smoke.png",
+        "velocity.png"
+      ],
+      "log": "project=046 title=稳定流体\nkind=python entry=stable_fluids.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/046\n----- run -----\n============================================================\n046 | 稳定流体 128x128\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n60 步: 1347.7 ms\n✓ Navier-Stokes 稳定流体完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:33:49Z"
     },
     {
       "id": "047",
@@ -898,14 +1175,22 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "fracture_sim.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 6.069,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "break_break.png",
+        "break_debris.png",
+        "break_solid.png"
+      ],
+      "files": [
+        "break_break.png",
+        "break_debris.png",
+        "break_solid.png"
+      ],
+      "log": "project=047 title=破碎仿真\nkind=python entry=fracture_sim.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/047\n----- run -----\n============================================================\n047 | 刚体破碎仿真\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 1 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n  solid 完成\n  break 完成\n  debris 完成\n✓ 破碎仿真完成（点击破碎=broken 标志）。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:33:58Z"
     },
     {
       "id": "048",

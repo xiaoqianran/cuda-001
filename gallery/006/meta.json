@@ -1,0 +1,26 @@
+{
+  "id": "006",
+  "title": "多 Pass 管线",
+  "level": 2,
+  "category": "post",
+  "category_label": "图像后处理",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "pipeline.py",
+  "status": "ok",
+  "elapsed_sec": 2.859,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "input.png",
+    "pipeline_full.png",
+    "pipeline_sharp_tone.png"
+  ],
+  "files": [
+    "input.png",
+    "pipeline_full.png",
+    "pipeline_sharp_tone.png"
+  ],
+  "log": "project=006 title=多 Pass 管线\nkind=python entry=pipeline.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/006\n----- run -----\n============================================================\n006 | 多 Pass GPU 管线（显存驻留）\n============================================================\n\n管线 [full] order=['median', 'color', 'sharpen', 'tone']\n  pass median    : 584.648 ms\n  pass color     : 165.243 ms\n  pass sharpen   : 164.732 ms\n  pass tone      : 159.525 ms\n  总计: 1355.013 ms\n\n管线 [sharp_tone] order=['sharpen', 'tone']\n  pass sharpen   :   0.995 ms\n  pass tone      :   5.184 ms\n  总计: 17.112 ms\n\n✓ 多 pass 显存驻留管线跑通。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:29:08Z"
+}

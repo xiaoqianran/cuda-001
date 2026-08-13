@@ -1,0 +1,22 @@
+{
+  "id": "040",
+  "title": "点云",
+  "level": 3,
+  "category": "sci",
+  "category_label": "科学可视化",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "point_cloud.py",
+  "status": "ok",
+  "elapsed_sec": 2.581,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "pointcloud.png"
+  ],
+  "files": [
+    "pointcloud.png"
+  ],
+  "log": "project=040 title=点云\nkind=python entry=point_cloud.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/040\n----- run -----\n============================================================\n040 | 点云渲染 N=150000\n============================================================\n渲染: 554.3 ms\n✓ 点云 LOD + 视锥剔除完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:33:01Z"
+}

@@ -1,0 +1,22 @@
+{
+  "id": "037",
+  "title": "体渲染",
+  "level": 3,
+  "category": "sci",
+  "category_label": "科学可视化",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "volume_render.py",
+  "status": "ok",
+  "elapsed_sec": 3.182,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "volume.png"
+  ],
+  "files": [
+    "volume.png"
+  ],
+  "log": "project=037 title=体渲染\nkind=python entry=volume_render.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/037\n----- run -----\n============================================================\n037 | 体渲染\n============================================================\n渲染: 888.0 ms\n✓ CT 体渲染完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:32:44Z"
+}

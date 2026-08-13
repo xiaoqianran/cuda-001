@@ -1,0 +1,26 @@
+{
+  "id": "034",
+  "title": "风格迁移",
+  "level": 3,
+  "category": "video",
+  "category_label": "视频 / 图像生成",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "style_transfer.py",
+  "status": "ok",
+  "elapsed_sec": 5.826,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "oil.png",
+    "sketch.png",
+    "watercolor.png"
+  ],
+  "files": [
+    "oil.png",
+    "sketch.png",
+    "watercolor.png"
+  ],
+  "log": "project=034 title=风格迁移\nkind=python entry=style_transfer.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/034\n----- run -----\n============================================================\n034 | 风格迁移\n============================================================\n  oil         :  17.032 ms\n  sketch      :   3.291 ms\n  watercolor  :   3.586 ms\n✓ 三种艺术风格完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:32:25Z"
+}

@@ -1,0 +1,26 @@
+{
+  "id": "007",
+  "title": "Bilateral Filter",
+  "level": 2,
+  "category": "post",
+  "category_label": "图像后处理",
+  "stack": "C++ CUDA",
+  "kind": "cuda",
+  "entry": "bilateral",
+  "status": "ok",
+  "elapsed_sec": 5.73,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "bilateral.png",
+    "gaussian.png",
+    "input.png"
+  ],
+  "files": [
+    "bilateral.ppm",
+    "gaussian.ppm",
+    "input.ppm"
+  ],
+  "log": "project=007 title=Bilateral Filter\nkind=cuda entry=bilateral\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/007\n----- make -----\nnvcc -arch=sm_75 -O3 -o bilateral src/bilateral.cu\n----- run -----\n============================================================\n007 | GPU Bilateral Filter (shared + texture)\n============================================================\n分辨率: 1920x1080\n高斯模糊:      6.107 ms\n双边(shared):    6.161 ms\n双边(texture):    8.127 ms\n已保存 output/*.ppm （对比双边 vs 高斯：边缘应更清晰）\n✓ Bilateral shared+texture 完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:29:30Z"
+}
