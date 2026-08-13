@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:28:45Z",
-  "completed": 2,
+  "updated_at": "2026-08-13T07:28:51Z",
+  "completed": 3,
   "failed": 0,
-  "pending": 48,
+  "pending": 47,
   "categories": [
     {
       "id": "post",
@@ -114,14 +114,22 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "sobel_edge.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 3.385,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "binary.png",
+        "gray.png",
+        "magnitude.png"
+      ],
+      "files": [
+        "binary.png",
+        "gray.png",
+        "magnitude.png"
+      ],
+      "log": "project=003 title=Sobel 边缘\nkind=python entry=sobel_edge.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/003\n----- run -----\n============================================================\n003 | GPU Sobel 边缘检测\n============================================================\nGPU Sobel+二值化: 11.326 ms  (threshold=80.0)\nOpenCV CPU: 12.135 ms | 平均幅值差: 0.002\n加速比: 1.07x\n已保存 magnitude/binary.png\n✓ 单 kernel 融合 Gx/Gy/幅值/二值化 完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:28:51Z"
     },
     {
       "id": "004",
