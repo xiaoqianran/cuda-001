@@ -21,6 +21,15 @@ if (window.mermaid) {
     theme: "dark",
     securityLevel: "loose",
     fontFamily: "Outfit, IBM Plex Mono, sans-serif",
+    fontSize: 18,
+    flowchart: {
+      useMaxWidth: false,
+      htmlLabels: true,
+      curve: "basis",
+      padding: 16,
+      nodeSpacing: 48,
+      rankSpacing: 56,
+    },
     themeVariables: {
       darkMode: true,
       background: "#080c11",
@@ -31,6 +40,7 @@ if (window.mermaid) {
       secondaryColor: "#2a1d18",
       tertiaryColor: "#121820",
       nodeTextColor: "#e8eef4",
+      fontSize: "18px",
     },
   });
 }
@@ -158,7 +168,7 @@ function renderLesson(id) {
   const diagrams = (lesson.diagrams || [])
     .map(
       (d, i) =>
-        `<div class="diagram"><h4>${escapeHtml(d.title)}</h4><pre class="mermaid" id="m-${id}-${i}">${String(d.code).replace(/&/g, "&amp;").replace(/</g, "&lt;")}</pre></div>`
+        `<div class="diagram" data-title="${escapeHtml(d.title)}"><h4>${escapeHtml(d.title)}</h4><p class="hint">点击图放大 · 滚轮缩放 · 拖拽移动</p><pre class="mermaid" id="m-${id}-${i}">${String(d.code).replace(/&/g, "&amp;").replace(/</g, "&lt;")}</pre></div>`
     )
     .join("");
   el.innerHTML = `
@@ -169,9 +179,12 @@ function renderLesson(id) {
     <h3>流程图解</h3>
     ${diagrams}
   `;
-  if (window.mermaid) {
-    window.mermaid.run({ querySelector: "#d-lesson .mermaid" }).catch(() => {});
-  }
+  const run = window.mermaid
+    ? window.mermaid.run({ querySelector: "#d-lesson .mermaid" })
+    : Promise.resolve();
+  Promise.resolve(run)
+    .catch(() => {})
+    .then(() => bindDiagramZoom(el));
 }
 
 function openDrawer(id) {
@@ -227,8 +240,179 @@ $("#drawer").addEventListener("click", (e) => {
   if (e.target.id === "drawer") closeDrawer();
 });
 document.addEventListener("keydown", (e) => {
-  if (e.key === "Escape") closeDrawer();
+  if (e.key !== "Escape") return;
+  if (!$("#zoom").hidden) {
+    closeZoom();
+    return;
+  }
+  closeDrawer();
 });
+const zoom = {
+  scale: 1,
+  x: 0,
+  y: 0,
+  dragging: false,
+  px: 0,
+  py: 0,
+  min: 0.25,
+  max: 8,
+};
+
+function bindDiagramZoom(root) {
+  root.querySelectorAll(".diagram").forEach((box) => {
+    box.addEventListener("click", (e) => {
+      if (e.target.closest("a")) return;
+      const svg = box.querySelector("svg");
+      if (!svg) return;
+      openZoom(svg, box.dataset.title || "流程图");
+    });
+  });
+}
+
+function applyZoom() {
+  const canvas = $("#zoom-canvas");
+  canvas.style.transform = `translate(${zoom.x}px, ${zoom.y}px) scale(${zoom.scale})`;
+  $("#zoom-level").textContent = Math.round(zoom.scale * 100) + "%";
+}
+
+function fitZoom() {
+  const stage = $("#zoom-stage");
+  const svg = $("#zoom-canvas svg");
+  if (!svg) return;
+  const pad = 80;
+  let w = 800;
+  let h = 500;
+  try {
+    const box = svg.getBBox();
+    w = Math.max(box.width, 1);
+    h = Math.max(box.height, 1);
+  } catch (err) {
+    w = svg.clientWidth || w;
+    h = svg.clientHeight || h;
+  }
+  const sx = (stage.clientWidth - pad) / w;
+  const sy = (stage.clientHeight - pad) / h;
+  zoom.scale = Math.min(Math.max(Math.min(sx, sy), zoom.min), 3);
+  zoom.x = (stage.clientWidth - w * zoom.scale) / 2;
+  zoom.y = (stage.clientHeight - h * zoom.scale) / 2;
+  applyZoom();
+}
+
+function openZoom(svg, title) {
+  const clone = svg.cloneNode(true);
+  clone.removeAttribute("width");
+  clone.removeAttribute("height");
+  clone.removeAttribute("style");
+  clone.style.maxWidth = "none";
+  clone.style.width = "auto";
+  clone.style.height = "auto";
+  $("#zoom-title").textContent = title;
+  $("#zoom-canvas").innerHTML = "";
+  $("#zoom-canvas").appendChild(clone);
+  $("#zoom").hidden = false;
+  zoom.scale = 1.6;
+  zoom.x = 40;
+  zoom.y = 40;
+  applyZoom();
+  requestAnimationFrame(() => requestAnimationFrame(fitZoom));
+}
+
+function closeZoom() {
+  $("#zoom").hidden = true;
+  $("#zoom-canvas").innerHTML = "";
+}
+
+function zoomBy(factor, cx, cy) {
+  const stage = $("#zoom-stage");
+  const rect = stage.getBoundingClientRect();
+  const px = cx == null ? rect.width / 2 : cx - rect.left;
+  const py = cy == null ? rect.height / 2 : cy - rect.top;
+  const next = Math.min(zoom.max, Math.max(zoom.min, zoom.scale * factor));
+  const k = next / zoom.scale;
+  zoom.x = px - (px - zoom.x) * k;
+  zoom.y = py - (py - zoom.y) * k;
+  zoom.scale = next;
+  applyZoom();
+}
+
+$("#zoom-close").onclick = closeZoom;
+$("#zoom").querySelectorAll("[data-z]").forEach((btn) => {
+  btn.addEventListener("click", () => {
+    const act = btn.dataset.z;
+    if (act === "in") zoomBy(1.25);
+    else if (act === "out") zoomBy(0.8);
+    else if (act === "reset") {
+      zoom.scale = 1;
+      zoom.x = 40;
+      zoom.y = 40;
+      applyZoom();
+    } else if (act === "fit") fitZoom();
+  });
+});
+
+$("#zoom-stage").addEventListener(
+  "wheel",
+  (e) => {
+    e.preventDefault();
+    zoomBy(e.deltaY < 0 ? 1.12 : 0.9, e.clientX, e.clientY);
+  },
+  { passive: false }
+);
+
+$("#zoom-stage").addEventListener("dblclick", (e) => {
+  zoomBy(1.45, e.clientX, e.clientY);
+});
+$("#zoom-stage").addEventListener("pointerdown", (e) => {
+  if (e.button !== 0) return;
+  zoom.dragging = true;
+  zoom.px = e.clientX - zoom.x;
+  zoom.py = e.clientY - zoom.y;
+  $("#zoom-stage").classList.add("dragging");
+  $("#zoom-stage").setPointerCapture(e.pointerId);
+});
+$("#zoom-stage").addEventListener("pointermove", (e) => {
+  if (!zoom.dragging) return;
+  zoom.x = e.clientX - zoom.px;
+  zoom.y = e.clientY - zoom.py;
+  applyZoom();
+});
+$("#zoom-stage").addEventListener("pointerup", () => {
+  zoom.dragging = false;
+  $("#zoom-stage").classList.remove("dragging");
+});
+$("#zoom-stage").addEventListener("pointercancel", () => {
+  zoom.dragging = false;
+  $("#zoom-stage").classList.remove("dragging");
+});
+
+let pinch = 0;
+$("#zoom-stage").addEventListener(
+  "touchstart",
+  (e) => {
+    if (e.touches.length === 2) {
+      const a = e.touches[0];
+      const b = e.touches[1];
+      pinch = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+    }
+  },
+  { passive: true }
+);
+$("#zoom-stage").addEventListener(
+  "touchmove",
+  (e) => {
+    if (e.touches.length !== 2 || !pinch) return;
+    e.preventDefault();
+    const a = e.touches[0];
+    const b = e.touches[1];
+    const dist = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+    const midX = (a.clientX + b.clientX) / 2;
+    const midY = (a.clientY + b.clientY) / 2;
+    zoomBy(dist / pinch, midX, midY);
+    pinch = dist;
+  },
+  { passive: false }
+);
+
 $("#q").addEventListener("input", (e) => {
   state.q = e.target.value;
   renderGrid();

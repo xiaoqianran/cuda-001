@@ -89,6 +89,24 @@
     </div>
   </aside>
 
+  <div class="zoom" id="zoom" hidden>
+    <div class="zoom-bar">
+      <strong id="zoom-title">流程图</strong>
+      <div class="zoom-actions">
+        <button type="button" data-z="out" aria-label="缩小">−</button>
+        <span id="zoom-level">100%</span>
+        <button type="button" data-z="in" aria-label="放大">+</button>
+        <button type="button" data-z="reset">100%</button>
+        <button type="button" data-z="fit">适应屏幕</button>
+        <button type="button" id="zoom-close" aria-label="关闭放大">×</button>
+      </div>
+    </div>
+    <div class="zoom-stage" id="zoom-stage">
+      <div class="zoom-canvas" id="zoom-canvas"></div>
+    </div>
+    <p class="zoom-hint">滚轮 / 双指缩放 · 拖拽移动 · Esc 关闭</p>
+  </div>
+
   <footer>
     <p>cuda-001 · Modal T4 已跑完并关机 · 讲解由 GitHub Actions 写入 Pages</p>
   </footer>
