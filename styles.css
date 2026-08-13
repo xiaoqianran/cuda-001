@@ -271,12 +271,12 @@ h1 em {
 }
 .drawer[hidden] { display: none; }
 .drawer-panel {
-  width: min(640px, 100vw);
+  width: min(860px, 100vw);
   height: 100%;
   overflow: auto;
   background: #0c1117;
   border-left: 1px solid var(--line);
-  padding: 28px 28px 80px;
+  padding: 28px 32px 80px;
   box-shadow: var(--shadow);
 }
 .close {
@@ -331,6 +331,71 @@ pre {
   line-height: 1.5;
   color: #c6d0d8;
 }
+
+.lesson { margin-top: 28px; }
+.lesson h3 {
+  margin: 28px 0 12px;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+}
+.lesson h4 {
+  margin: 0 0 8px;
+  font-size: 1.02rem;
+  color: var(--mint-2);
+}
+.lesson article {
+  margin-bottom: 16px;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.02);
+}
+.lesson p {
+  margin: 0;
+  color: #c9d3dc;
+  line-height: 1.75;
+  font-size: 0.98rem;
+}
+.terms {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+}
+.terms div {
+  display: grid;
+  grid-template-columns: minmax(108px, 28%) 1fr;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--line);
+}
+.terms dt { color: var(--gold); font-weight: 600; }
+.terms dd { margin: 0; color: #c9d3dc; line-height: 1.65; }
+.diagram {
+  margin: 0 0 18px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: #080c11;
+}
+.diagram h4 { margin-bottom: 12px; }
+.mermaid {
+  display: flex;
+  justify-content: center;
+  overflow-x: auto;
+}
+.mermaid svg { max-width: 100%; height: auto; }
+.log-box {
+  margin-top: 22px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 10px 14px;
+}
+.log-box summary {
+  cursor: pointer;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+.log-box pre { margin-top: 10px; max-height: 240px; }
 
 footer {
   padding: 28px 7vw 40px;
