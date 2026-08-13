@@ -1,0 +1,26 @@
+{
+  "id": "005",
+  "title": "HE + CLAHE",
+  "level": 2,
+  "category": "post",
+  "category_label": "图像后处理",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "hist_clahe.py",
+  "status": "ok",
+  "elapsed_sec": 2.331,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "clahe.png",
+    "he.png",
+    "xray.png"
+  ],
+  "files": [
+    "clahe.png",
+    "he.png",
+    "xray.png"
+  ],
+  "log": "project=005 title=HE + CLAHE\nkind=python entry=hist_clahe.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/005\n----- run -----\n============================================================\n005 | 直方图均衡化 + CLAHE (atomicAdd)\n============================================================\n全局 HE: 1.662 ms | CLAHE: 14.220 ms\n原图对比度(std)=18.51 HE=73.57 CLAHE=27.48\n✓ atomic 直方图 + CLAHE 双线性合并完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:29:02Z"
+}
