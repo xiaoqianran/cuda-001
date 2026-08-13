@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:33:16Z",
-  "completed": 42,
+  "updated_at": "2026-08-13T07:33:23Z",
+  "completed": 43,
   "failed": 0,
-  "pending": 8,
+  "pending": 7,
   "categories": [
     {
       "id": "post",
@@ -1077,14 +1077,18 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "proc_terrain.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.679,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "terrain.png"
+      ],
+      "files": [
+        "terrain.png"
+      ],
+      "log": "project=043 title=程序化地形\nkind=python entry=proc_terrain.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/043\n----- run -----\n============================================================\n043 | 程序化地形 + 生物群系\n============================================================\n/usr/local/lib/python3.11/site-packages/numba/cuda/dispatcher.py:536: NumbaPerformanceWarning: Grid size 64 will likely result in GPU under-utilization due to low occupancy.\n  warn(NumbaPerformanceWarning(msg))\n  chunk (0,0) 已生成\n  chunk (1,0) 已生成\n  chunk (0,1) 已生成\n✓ 程序化地形完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:33:23Z"
     },
     {
       "id": "044",
