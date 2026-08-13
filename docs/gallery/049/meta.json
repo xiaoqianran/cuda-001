@@ -1,0 +1,27 @@
+{
+  "id": "049",
+  "title": "神经 / 引导降噪",
+  "level": 4,
+  "category": "ai",
+  "category_label": "AI 渲染",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "denoise.py",
+  "status": "ok",
+  "elapsed_sec": 5.65,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "denoised.png",
+    "gt.png",
+    "noisy_4spp.png"
+  ],
+  "files": [
+    "denoised.png",
+    "gt.png",
+    "noisy_4spp.png",
+    "tensorrt_interface.md"
+  ],
+  "log": "project=049 title=神经 / 引导降噪\nkind=python entry=denoise.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/049\n----- run -----\n============================================================\n049 | 引导降噪（4 spp）\n============================================================\n联合双边: 672.96 ms | MSE noisy=0.00126 denoise=0.00002\n✓ 降噪教学实现完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:34:17Z"
+}
