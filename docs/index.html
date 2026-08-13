@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Outfit:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect rx='12' width='64' height='64' fill='%230b0f14'/%3E%3Cpath d='M12 40 L32 12 L52 40' fill='none' stroke='%233ee0b3' stroke-width='4'/%3E%3Ccircle cx='32' cy='44' r='6' fill='%23ff6b4a'/%3E%3C/svg%3E" />
 </head>
 <body>
@@ -37,7 +38,7 @@
       <h1>五十个 GPU 实验，<br /><em>一张画廊看完。</em></h1>
       <p class="lede">
         从 Numba 入门到路径追踪、粒子、流体与 NeRF。每个过程在最便宜的 T4 上依次跑完，
-        产物由 GitHub Action 写入本站。
+        产物由 GitHub Action 写入本站。点开任意一张卡片，都有给小白的中文讲解和流程图。
       </p>
       <div class="stats" id="stats">
         <article><strong id="stat-done">0</strong><span>已完成</span></article>
@@ -80,13 +81,16 @@
       <div class="d-hero" id="d-hero"></div>
       <div class="thumbs" id="d-thumbs"></div>
       <dl class="facts" id="d-facts"></dl>
-      <h3>运行日志</h3>
-      <pre id="d-log"></pre>
+      <section class="lesson" id="d-lesson"></section>
+      <details class="log-box">
+        <summary>T4 运行日志</summary>
+        <pre id="d-log"></pre>
+      </details>
     </div>
   </aside>
 
   <footer>
-    <p>cuda-001 · Modal T4 sequential runs · deployed by GitHub Actions</p>
+    <p>cuda-001 · Modal T4 已跑完并关机 · 讲解由 GitHub Actions 写入 Pages</p>
   </footer>
 
   <script src="app.js"></script>
