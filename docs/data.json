@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:31:25Z",
-  "completed": 24,
+  "updated_at": "2026-08-13T07:31:29Z",
+  "completed": 25,
   "failed": 0,
-  "pending": 26,
+  "pending": 25,
   "categories": [
     {
       "id": "post",
@@ -645,14 +645,19 @@
       "stack": "C++ 软件光栅",
       "kind": "cpp",
       "entry": "mini_engine",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 1.42,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "frame.png"
+      ],
+      "files": [
+        "frame.ppm",
+        "stats.txt"
+      ],
+      "log": "project=025 title=迷你引擎\nkind=cpp entry=mini_engine\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/025\n----- make -----\ng++ -O3 -std=c++17 -o mini_engine src/mini_engine.cpp -lm\n----- run -----\n============================================================\n025 | 迷你引擎渲染器（无头帧输出）\n============================================================\ndraw_calls=21 culled=0 light=33.93ms post=1.47ms\n✓ 迷你引擎无头帧 + 统计完成（见 docs/vulkan_pipeline.md）。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:31:29Z"
     },
     {
       "id": "026",
