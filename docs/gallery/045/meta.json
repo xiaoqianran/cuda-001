@@ -1,0 +1,24 @@
+{
+  "id": "045",
+  "title": "植被",
+  "level": 3,
+  "category": "proc",
+  "category_label": "程序化",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "vegetation.py",
+  "status": "ok",
+  "elapsed_sec": 4.675,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "grass.png",
+    "tree_lsystem.png"
+  ],
+  "files": [
+    "grass.png",
+    "tree_lsystem.png"
+  ],
+  "log": "project=045 title=植被\nkind=python entry=vegetation.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/045\n----- run -----\n============================================================\n045 | 植被与森林\n============================================================\nL-system 树段数: 4096\n草实例: 80000\n✓ 植被系统完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:33:39Z"
+}

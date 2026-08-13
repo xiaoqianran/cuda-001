@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:33:32Z",
-  "completed": 44,
+  "updated_at": "2026-08-13T07:33:39Z",
+  "completed": 45,
   "failed": 0,
-  "pending": 6,
+  "pending": 5,
   "categories": [
     {
       "id": "post",
@@ -1127,14 +1127,20 @@
       "stack": "Python + Numba CUDA",
       "kind": "python",
       "entry": "vegetation.py",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 4.675,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "grass.png",
+        "tree_lsystem.png"
+      ],
+      "files": [
+        "grass.png",
+        "tree_lsystem.png"
+      ],
+      "log": "project=045 title=植被\nkind=python entry=vegetation.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/045\n----- run -----\n============================================================\n045 | 植被与森林\n============================================================\nL-system 树段数: 4096\n草实例: 80000\n✓ 植被系统完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:33:39Z"
     },
     {
       "id": "046",
