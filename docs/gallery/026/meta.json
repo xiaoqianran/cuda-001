@@ -1,0 +1,22 @@
+{
+  "id": "026",
+  "title": "粒子基础",
+  "level": 2,
+  "category": "particles",
+  "category_label": "粒子仿真",
+  "stack": "Python + Numba CUDA",
+  "kind": "python",
+  "entry": "particles.py",
+  "status": "ok",
+  "elapsed_sec": 2.787,
+  "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+  "images": [
+    "particles.png"
+  ],
+  "files": [
+    "particles.png"
+  ],
+  "log": "project=026 title=粒子基础\nkind=python entry=particles.py\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/026\n----- run -----\n============================================================\n026 | GPU 粒子 N=100000\n============================================================\n60 帧更新: 190.21 ms\n渲染: 190.50 ms\n✓ 10万粒子 GPU 更新+渲染完成。\n",
+  "error": null,
+  "updated_at": "2026-08-13T07:31:34Z"
+}
