@@ -1,10 +1,10 @@
 {
   "title": "GPU 加速渲染 · 50 实验",
   "gpu_target": "NVIDIA Tesla T4",
-  "updated_at": "2026-08-13T07:31:05Z",
-  "completed": 21,
+  "updated_at": "2026-08-13T07:31:08Z",
+  "completed": 22,
   "failed": 0,
-  "pending": 29,
+  "pending": 28,
   "categories": [
     {
       "id": "post",
@@ -577,14 +577,18 @@
       "stack": "C++ 软件光栅",
       "kind": "cpp",
       "entry": "deferred",
-      "status": "pending",
-      "elapsed_sec": null,
-      "gpu": null,
-      "images": [],
-      "files": [],
-      "log": "",
+      "status": "ok",
+      "elapsed_sec": 1.046,
+      "gpu": "Tesla T4, 15360 MiB, 580.95.05, 7.5",
+      "images": [
+        "deferred.png"
+      ],
+      "files": [
+        "deferred.ppm"
+      ],
+      "log": "project=022 title=延迟渲染\nkind=cpp entry=deferred\ngpu=Tesla T4, 15360 MiB, 580.95.05, 7.5\ncwd=/proj/022\n----- make -----\ng++ -O3 -std=c++17 -o deferred src/deferred.cpp -lm\n----- run -----\n============================================================\n022 | Deferred Shading (G-Buffer + 多光源)\n============================================================\n光源数: 32 | G-Buffer: pos/normal/albedo/metal-rough\n✓ 延迟渲染管线完成。\n",
       "error": null,
-      "updated_at": null
+      "updated_at": "2026-08-13T07:31:08Z"
     },
     {
       "id": "023",
